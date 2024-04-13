@@ -4,13 +4,17 @@
 import React, { FormEvent, useState } from 'react';
 import { BackgroundBeams } from '@/components/ui/background-beams';
 
+import { toast } from 'react-hot-toast';
+
 function MusicSchoolContactUs() {
   const [email, setEmail] = useState('');
   const [message, setMessage] = useState('');
 
   const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    console.log('Submitted:', { email, message });
+    toast.success('Response Received!');
+    setEmail('');
+    setMessage('');
   };
 
   return (
