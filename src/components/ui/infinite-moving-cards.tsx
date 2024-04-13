@@ -1,4 +1,3 @@
-
 "use client";
 
 import { cn } from "@/utils/cn";
@@ -26,8 +25,10 @@ export const InfiniteMovingCards = ({
 
   useEffect(() => {
     addAnimation();
-  }, []);
+  }, [addAnimation]); // Added addAnimation to the dependency array
+
   const [start, setStart] = useState(false);
+
   function addAnimation() {
     if (containerRef.current && scrollerRef.current) {
       const scrollerContent = Array.from(scrollerRef.current.children);
@@ -44,6 +45,7 @@ export const InfiniteMovingCards = ({
       setStart(true);
     }
   }
+
   const getDirection = () => {
     if (containerRef.current) {
       if (direction === "left") {
@@ -59,6 +61,7 @@ export const InfiniteMovingCards = ({
       }
     }
   };
+
   const getSpeed = () => {
     if (containerRef.current) {
       if (speed === "fast") {
@@ -70,6 +73,7 @@ export const InfiniteMovingCards = ({
       }
     }
   };
+
   return (
     <div
       ref={containerRef}
